@@ -1,0 +1,31 @@
+body {
+	background-color: #FED9B7;
+	height: 100%;
+  	padding: 15;
+  	margin: 0;
+	text-align: center;
+}
+
+.title1{
+	color: #0081A7;
+	font-size: 145px;
+	margin: 0;
+	text-align: center;
+	font-family: 'Staatliches', cursive;
+}
+
+.title2{
+	text-align: center;
+	color: #F07167;
+	font-size: 55px;
+	margin:0;
+	margin-top: -0.5em;
+	font-family: 'Voltaire', sans-serif;
+}
+
+.input, .output {
+	text-align: center;
+	font-family: 'Voltaire', sans-serif;
+	color: #151414;
+	font-size: 35px
+}

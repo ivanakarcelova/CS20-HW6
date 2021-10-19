@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amicable Numbers</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Voltaire&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="title" id="titleBox">
+		<h1 class="title1">Amicable or Not?</h1>
+		<h1 class="title2">Enter a digit in each textbox to see if they are an amicable pair of numbers. <br> A pair of numbers are amicable if their factors (excluding themselves) add up to each other.  (A factor is a number that divides evenly into another number.) </h1>
+	</div>
+
+	<div class="input">
+		<input type="text" class="input_1_class" placeholder="Input 1" id="first_input_ID">
+		<input type="text" class="input_2_class" placeholder="Input 2" id="second_input_ID">
+		<button class="check_btn" type="button" id="amicable_check_ID" onclick="input()">Check Amicability</button>
+	</div>
+
+	<div class="output" id="outputBox">
+		<h2 class="amicableResult" id="output_ID">The numbers: xxx and yyy are amicable</h2>
+	</div>
+
+	<script language="javascript">
+		function input()
+		{
+			var first_input = document.getElementById("first_input_ID").value;
+			var second_input = document.getElementById("second_input_ID").value;
+
+			var first_factor = [];
+			var second_factor = [];
+
+			//check to see if first input and second input are factors of eachother
+			isAFactor(first_input, first_factor);
+			isAFactor(second_input, second_factor);
+
+			var first_sum = sumFactor(first_factor);
+			var second_sum = sumFactor(second_factor);
+
+			//compare sums to factors to inputs to see if they are amicable
+			if (first_sum == second_input && second_sum == first_input)
+			{
+				document.getElementById("output_ID").innerHTML = "The numbers: " + first_input + " and " + second_input + " are amicable.";
+				alert("The factors of input 1 are: " + first_factor);
+				alert("The factors of input 2 are: " + second_factor);
+			}
+			else {
+				document.getElementById("output_ID").innerHTML = "The numbers: " + first_input + " and " + second_input + " are not amicable.";
+				alert("The factors of input 1 are: " + first_factor);
+				alert("The factors of input 2 are: " + second_factor);
+			}
+		}
+
+		function isAFactor(num, array)
+		{
+			for (var i = 0; i < num; i++) {
+				if (num % i == 0) {
+					array.push(i);
+				}
+			}
+		}
+
+		function sumFactor(array)
+		{
+			var sum = 0;
+			for (var i = 0; i < array.length; i++) {
+				sum = sum + array[i];
+			}
+			return sum;
+		}
+	</script>
+
+</body>
